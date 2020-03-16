@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+  <title>WOLF</title>
+  <link rel="icon" type="image/png" href="imgs/bbdbdb.PNG">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="path_to_your_css_file/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<html>
+    <body> 
+
+        <div class="bk1" >
+            <center>
+            <nav class="menu">
+              <ol>
+                <li class="menu-item"><a href="first.html">Home</a></li>
+                <li class="menu-item"><a href="GFCS.html">Gift Cards</a></li>
+                <li class="menu-item"><a href="#0">PC Games</a>
+                  <ol class="sub-menu">
+                    <li class="menu-item"><a href="#0">Online Games</a></li>
+                    <li class="menu-item"><a href="#0">Offline Games</a></li>
+                    <li class="menu-item"><a href="#0">CD games</a></li>
+                  </ol>
+                </li>
+                <li class="menu-item"><a href="#0">Console Games</a>
+                  <ol class="sub-menu">
+                    <li class="menu-item"><a href="#0">Online Games</a></li>
+                    <li class="menu-item"><a href="#0">Offline Games</a></li>
+                    <li class="menu-item"><a href="#0">CD games</a></li>
+                  </ol>
+                </li>
+                <li class="menu-item"><a href="contact.html">Contact</a></li>
+              </ol>
+            </nav>
+</center>
+</div>
+<div class="backcon1"  >
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <br>
+      <h2 class="active"> Contact Us </h2>
+      <br>
+      <!-- Login Form -->
+      <form id="contactForm">
+        <input type="text" id="email" id="login" class="fadeIn second" name="login" placeholder="Your Email Addresses">
+        <input type="text" id="password" id="name" class="fadeIn third" name="login" placeholder="Your Name">
+        <input type="text" id="password" id="phone" class="fadeIn third" name="login" placeholder="Phone:+216">
+        <input type="text" id="password" id="comments" class="fadeIn third" name="login" placeholder="Your Commnets">
+        <input type="submit" class="fadeIn fourth" value="Send">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Help?</a>
+      </div>
+  
+    </div>
+  </div> 
+</div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2d1Rdh2cipciuQyf8s9MkBBB7I3Y4thw",
+    authDomain: "duddududdu-589fc.firebaseapp.com",
+    databaseURL: "https://duddududdu-589fc.firebaseio.com",
+    projectId: "duddududdu-589fc",
+    storageBucket: "duddududdu-589fc.appspot.com",
+    messagingSenderId: "298873047765",
+    appId: "1:298873047765:web:816824b8b45175447db05c",
+    measurementId: "G-KJSJFXM217"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  console.log(firebase);
+        var messagesRef = firebase.database().ref('duddududdu-589fc');
+        
+        
+        document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('login').value;
+            var password = document.getElementById('phone').value;
+            var message = document.getElementById('comments').value;
+
+            saveMessage(name, email, password, message);            
+        }
+
+        function saveMessage(name, email, password, message)
+        {
+            var newMessageRef = messagesRef.push();
+            newMessageRef.set(
+                {
+                    name: name,
+                    email: email,
+                    password: password,
+                    message: message
+                }
+            );
+        }   
+</script>
+    </body>
+    <script src="/js/myScript1.js"></script>
+</html>
